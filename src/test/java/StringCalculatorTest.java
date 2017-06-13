@@ -30,16 +30,18 @@ public class StringCalculatorTest {
     private Object [][] dataForTestingOutput(){
         return new Object[][]{
                 {"",0},
-                {"1",1}
+                {"1",1},
+                {"2",2},
+                {"33,33",66}
         };
     }
 
     @Parameters(method = "dataForTestingOutput")
     @Test
-    public void shouldReturnProperOutputForGIvenInput(String input, int expectedResult){
-        int result = testedObject.add("1");
+    public void shouldReturnProperOutputForGivenInput(String input, int expectedResult){
+        int result = testedObject.add(input);
 
-        assertThat(result).isEqualTo(1);
+        assertThat(result).isEqualTo(expectedResult);
     }
 
 
