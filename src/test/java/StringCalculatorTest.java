@@ -1,4 +1,7 @@
+import org.junit.Before;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Task:
@@ -8,9 +11,18 @@ import org.junit.Test;
 
 public class StringCalculatorTest {
 
-    @Test
-    public void testConstructor(){
+    StringCalculator testedObject;
 
+    @Before
+    public void setUP(){
+        testedObject = new StringCalculator();
     }
+
+    @Test
+    public void shouldReturnZeroForEmptyString(){
+        int result = testedObject.add("");
+        assertThat(result).isEqualTo(0);
+    }
+
 
 }
